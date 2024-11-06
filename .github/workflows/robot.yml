@@ -1,4 +1,4 @@
-name: RobotWEB LOISY
+name: Robot Framework Tests
 
 on: push
 
@@ -8,62 +8,100 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: CLONAR ARQUIVOS DE REPOSITORIO
-      uses: actions/checkout@v4
+    - name: Clonar arquivos do repositorio
+      uses: actions/checkout@v2
 
-    - name: CONFIGURAR PYTHON
-      uses: actions/setup-python@v5
+    - name: Configurar Python
+      uses: actions/setup-python@v2
       with:
         python-version: '3.x'
 
-    - name: INSTALAÇÃO DAS DEPENDENCIAS
+    - name: Instalação das Dependencias
       run: |
         pip install robotframework
         pip install robotframework-requests
         pip install Faker
         pip install robotframework-seleniumlibrary
-
-    - name: EXECUTANDO OS TESTES DE API DO ROBOT
+        
+    - name: Executando os testes de API do Robot
       run: |
+        # robot -d results
         robot --outputdir results/ tests/
       
-    - name: Test Report
+    - name: Salvar resultado dos testes
       uses: actions/upload-artifact@v4
-      if: always()
+      if: ${{ always() }}
       with:
-        name: robot-framework-report
-        path: results
+        name: robot-results
+        path: ./results
 
-  deploy:
-    name: Deploy GitHub Pages 🌐
-    runs-on: ubuntu-latest
-    needs: 
-      - test
 
-    permissions:
-      contents: read
-      pages: write
-      id-token: write
-    environment:
-      name: github-pages   
-      url: https://Wayslan-in.github.io/RobotWEBLOISY/report.html
+# name: RobotWEB LOISY
 
-    steps:
-      - name: SETUP PAGES
-        uses: actions/configure-pages@v2
+# on: push
 
-      - name: DOWNLOAD ARTIFACTS
-        uses: actions/download-artifact@v4
-        with: 
-          name: robot-framework-report
-          path: results/
+# jobs:
+#   test:
+#     name: API Tests
+#     runs-on: ubuntu-latest
 
-      - name: UPLOAD ARTIFACT
-        uses: actions/upload-pages-artifact@v1
-        with:
-          path: results/
+#     steps:
+#     - name: CLONAR ARQUIVOS DE REPOSITORIO
+#       uses: actions/checkout@v4
 
-      - name: DEPLOY TO GITHUB PAGES
-        id: deployment
-        uses: actions/deploy-pages@v1
+#     - name: CONFIGURAR PYTHON
+#       uses: actions/setup-python@v5
+#       with:
+#         python-version: '3.x'
+
+#     - name: INSTALAÇÃO DAS DEPENDENCIAS
+#       run: |
+#         pip install robotframework
+#         pip install robotframework-requests
+#         pip install Faker
+#         pip install robotframework-seleniumlibrary
+
+#     - name: EXECUTANDO OS TESTES DE API DO ROBOT
+#       run: |
+#         robot --outputdir results/ tests/
+      
+#     - name: Test Report
+#       uses: actions/upload-artifact@v4
+#       if: always()
+#       with:
+#         name: robot-framework-report
+#         path: results
+
+#   deploy:
+#     name: Deploy GitHub Pages 🌐
+#     runs-on: ubuntu-latest
+#     needs: 
+#       - test
+
+#     permissions:
+#       contents: read
+#       pages: write
+#       id-token: write
+#     environment:
+#       name: github-pages      
+#       url: https://Wayloisydslan-in.github.io/RobotWEBLOISY/report.html
+
+#     steps:
+#       - name: SETUP PAGES
+#         uses: actions/configure-pages@v2
+
+#       - name: DOWNLOAD ARTIFACTS
+#         uses: actions/download-artifact@v4
+#         with: 
+#           name: robot-framework-report
+#           path: results/
+
+#       - name: UPLOAD ARTIFACT
+#         uses: actions/upload-pages-artifact@v1
+#         with:
+#           path: results/
+
+#       - name: DEPLOY TO GITHUB PAGES
+#         id: deployment
+#         uses: actions/deploy-pages@v1
 

@@ -1,6 +1,6 @@
 *** Settings ***
-Resource    resource/companyweb.resource
-Library     SeleniumLibrary
+Resource     ../resource/companyweb.resource
+Library         SeleniumLibrary
 Documentation         Company Web
 Suite Setup           Abrir o navegador
 Suite Teardown        Close Browser
