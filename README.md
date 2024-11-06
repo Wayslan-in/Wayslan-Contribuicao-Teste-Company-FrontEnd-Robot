@@ -10,7 +10,7 @@
 - Consulta no Swagger
 - GIT ACTION
 
-## Média: 
+## Média: https://github.com/Wayslan-in/Wayslan-Contribuicao-Teste-Company-FrontEnd-Robot/issues/1#issuecomment-2460826298
 
 ## Squad: RON BUGADO
 [01] Wayslan Miranda, <br>
