@@ -1,4 +1,4 @@
-name: Loisy-Robot Framework Tests
+name: RobotWEB LOISY
 
 on: push
 
@@ -27,7 +27,7 @@ jobs:
       run: |
         robot --outputdir results/ tests/
       
-    - name: TEST REPORT
+    - name: Test Report
       uses: actions/upload-artifact@v4
       if: always()
       with:
@@ -37,7 +37,7 @@ jobs:
   deploy:
     name: Deploy GitHub Pages 🌐
     runs-on: ubuntu-latest
-    needs:  
+    needs: 
       - test
 
     permissions:
@@ -45,8 +45,8 @@ jobs:
       pages: write
       id-token: write
     environment:
-      name: github-pages              
-      url: https://Wayslan-in.github.io/Loisy-Robotxx-Framework-Tests/report.html   
+      name: github-pages   
+      url: https://Wayslan-in.github.io/RobotWEBLOISY/report.html
 
     steps:
       - name: SETUP PAGES
@@ -64,41 +64,6 @@ jobs:
           path: results/
 
       - name: DEPLOY TO GITHUB PAGES
+        id: deployment
         uses: actions/deploy-pages@v1
 
-
-# name: Robot Framework Tests
-
-# on: push
-
-# jobs:
-#   test:
-#     name: API Tests
-#     runs-on: ubuntu-latest
-
-#     steps:
-#     - name: Clonar arquivos do repositorio
-#       uses: actions/checkout@v2
-
-#     - name: Configurar Python
-#       uses: actions/setup-python@v2
-#       with:
-#         python-version: '3.x'
-
-#     - name: Instalação das Dependencias
-#       run: |
-#         pip install robotframework
-#         pip install robotframework-requests
-#         pip install Faker
-#         pip install robotframework-seleniumlibrary
-        
-#     - name: Executando os testes de API do Robot
-#       run: |
-#         robot -d results
-      
-#     - name: Salvar resultado dos testes
-#       uses: actions/upload-artifact@v4
-#       if: ${{ always() }}
-#       with:
-#         name: robot-results
-#         path: ./results
