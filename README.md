@@ -1,4 +1,4 @@
-## PROJETO FINAL ACADEMY T12.2.2024: Tesde de API com Robot
+## PROJETO FINAL ACADEMY T12.2.2024: Tesde de FRONTEND com Robot
 
 ## AUTOR: Loisy Dias
 ## Contribuição: Wayslan Miranda
@@ -6,7 +6,7 @@
 ## SQUAD: RonBugado-Academy
 
 ## Conhecimento colocado em Prática
-- Tesde de API com Robot
+- Tesde de FRONTEND com Robot
 - Consulta no Swagger
 - GIT ACTION
 
