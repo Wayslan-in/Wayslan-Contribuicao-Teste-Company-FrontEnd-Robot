@@ -4,7 +4,7 @@ on: push
 
 jobs:
   test:
-    name: API Test
+    name: API Tests
     runs-on: ubuntu-latest
 
     steps:
@@ -44,9 +44,9 @@ jobs:
       contents: read
       pages: write
       id-token: write
-    # environment:
-      # name: github-pages            
-      # url: https://Wayslan-in.github.io/Loisy-Robot-Framework-Tests/report.html   
+    environment:
+      name: github-pages              
+      url: https://Wayslan-in.github.io/Loisy-Robotxx-Framework-Tests/report.html   
 
     steps:
       - name: SETUP PAGES
