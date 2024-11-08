@@ -84,7 +84,7 @@ jobs:
       id-token: write
     environment:
       name: github-pages      
-      url: https://Wayslan-in.github.io/Contribuicao-robot-company/report.html
+      url: https://Wayslan-in.github.io/Contribuicao-robot--company/report.html
 
     steps:
       - name: SETUP PAGES
